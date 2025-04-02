@@ -1,4 +1,4 @@
-target = pcd.lab03.liveness.deadlock_obs.TestObsPatternDeadlock
+target = oldPcd.lab03.liveness.deadlock_obs.TestObsPatternDeadlock
 
 classpath=build/classes/java/main
 

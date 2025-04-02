@@ -1,4 +1,4 @@
-target = pcd.ass01.simengine_conc.cli.RunTrafficSimulation
+target = pcd.ass01.BoidsSimulation
 
 classpath=build/classes/java/main
 

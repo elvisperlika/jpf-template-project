@@ -1,4 +1,4 @@
-target = oldPcd.lab03.jpfmix.TestVerifyAPIRandom
+target = cswithlocks.TestCSWithLocks
 
 classpath=build/classes/java/main
 

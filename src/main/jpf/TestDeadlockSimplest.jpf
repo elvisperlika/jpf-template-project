@@ -1,4 +1,4 @@
-target = pcd.lab03.liveness.deadlock_simplest.TestDeadlockedResource
+target = oldPcd.lab03.liveness.deadlock_simplest.TestDeadlockedResource
 
 classpath=build/classes/java/main
 
