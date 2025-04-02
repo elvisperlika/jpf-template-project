@@ -1,4 +1,4 @@
-package pcd.ass01;
+package pcd1.ass012;
 
 public class BarrierImpl implements Barrier {
     protected final int parties;

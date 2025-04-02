@@ -1,6 +1,4 @@
-package pcd.ass01;
-
-import java.awt.*;
+package pcd1.ass012;
 
 public class BoidsSimulation {
 
@@ -16,6 +14,11 @@ public class BoidsSimulation {
     static final double PERCEPTION_RADIUS = 50.0;
     static final double AVOID_RADIUS = 20.0;
 
+    // static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    final static int SCREEN_WIDTH = 1400;
+    final static int SCREEN_HEIGHT = 600;
+
+
     public static void main(String[] args) {
         var model = new BoidsModel(
                 N_BOIDS,
@@ -25,6 +28,8 @@ public class BoidsSimulation {
                 PERCEPTION_RADIUS,
                 AVOID_RADIUS);
         var sim = new BoidsSimulatorController(model);
+        // var view = new BoidsView(model, SCREEN_WIDTH, SCREEN_HEIGHT, N_BOIDS);
+        // sim.attachView(view);
         sim.runSimulation();
     }
 }

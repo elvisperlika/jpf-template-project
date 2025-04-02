@@ -1,9 +1,8 @@
-package pcd.ass01;
+package pcd1.ass012;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class BoidsModel {
 
@@ -40,11 +39,12 @@ public class BoidsModel {
 
     private List<Boid> generateBoids(int nBoids) {
         List<Boid> boids = new ArrayList<>();
-        for (int i = 0; i < nBoids; i++) {
-            P2d pos = new P2d(-width / 2 + i * width, -height / 2 + i * height);
-            V2d vel = new V2d(i * maxSpeed / 2 - maxSpeed / 4, i * maxSpeed / 2 - maxSpeed / 4);
-            boids.add(new Boid(pos, vel));
-        }
+        // Random rand = new Random(0);
+//        for (int i = 0; i < nBoids; i++) {
+//            P2d pos = new P2d(-width / 2 + i * width, -height / 2 + i * height);
+//            V2d vel = new V2d(i * maxSpeed / 2 - maxSpeed / 4, i * maxSpeed / 2 - maxSpeed / 4);
+//            boids.add(new Boid(pos, vel));
+//        }
         return boids;
     }
 

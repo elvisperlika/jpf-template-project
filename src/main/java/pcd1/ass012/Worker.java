@@ -1,4 +1,4 @@
-package pcd.ass01;
+package pcd1.ass012;
 
 import java.util.List;
 
@@ -7,24 +7,25 @@ public class Worker extends Thread {
     private final List<Boid> boidsPartition;
     private final BoidsModel model;
     private final Monitor monitor;
-    private final CycleBarrier updVelCycleBarrier;
-    private final CycleBarrier updPosCycleBarrier;
-    private final CycleBarrier calVelCycleBarrier;
+    private final Barrier updVelBarrier;
+    private final Barrier updPosBarrier;
+    private final Barrier calVelBarrier;
+    private int i = 0;
 
     public Worker(String name,
                   List<Boid> boidsPartition,
                   BoidsModel model,
                   Monitor monitor,
-                  CycleBarrier calVelCycleBarrier,
-                  CycleBarrier updVelCycleBarrier,
-                  CycleBarrier updPosCycleBarrier) {
+                  Barrier calVelBarrier,
+                  Barrier updVelBarrier,
+                  Barrier updPosBarrier) {
         super(name);
         this.boidsPartition = boidsPartition;
         this.model = model;
         this.monitor = monitor;
-        this.calVelCycleBarrier = calVelCycleBarrier;
-        this.updVelCycleBarrier = updVelCycleBarrier;
-        this.updPosCycleBarrier = updPosCycleBarrier;
+        this.calVelBarrier = calVelBarrier;
+        this.updVelBarrier = updVelBarrier;
+        this.updPosBarrier = updPosBarrier;
     }
 
     public void run() {
@@ -37,18 +38,21 @@ public class Worker extends Thread {
     }
 
     private void calculateVelocityAndWaitCycleBarrier() {
+        // log("calculate");
         // boidsPartition.forEach(boid -> boid.calculateVelocity(model));
-        calVelCycleBarrier.await();
+        calVelBarrier.await();
     }
 
     private void updateVelocityAndWaitCycleBarrier() {
+        // log("update Velocity");
         // boidsPartition.forEach(boid -> boid.updateVelocity(model));
-        updVelCycleBarrier.await();
+        updVelBarrier.await();
     }
 
     private void updatePositionAndWaitBarrier() {
+        // log("POSITION");
         // boidsPartition.forEach(boid -> boid.updatePosition(model));
-        updPosCycleBarrier.await();
+        updPosBarrier.await();
     }
 
     private void log(String msg) {
